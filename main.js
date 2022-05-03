@@ -3,7 +3,7 @@ const User = require("./user");
 
 MongoClient.connect(
 	// TODO: Connection 
-	"my-mongodb+srv-connection-string",
+	"mongodb+srv://m001-student:m001-mongodb-basics@sandbox.te4xf.mongodb.net/Sandbox?retryWrites=true&w=majority",
 	{ useNewUrlParser: true },
 ).catch(err => {
 	console.error(err.stack)
