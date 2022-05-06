@@ -1,18 +1,11 @@
 const MongoClient = require("mongodb").MongoClient;
 const User = require("./user")
 
-const testUser = {
-	"_id": "627109b9bce944eb9729d61d",
-	username: "david",
-	email: "david10@gmail.com",
-	password: "123456",
-  }
-
 describe("User Account", () => {
 	let client;
 	beforeAll(async () => {
 		client = await MongoClient.connect(
-			"mongodb+srv://m001-student:m001-mongodb-basics@sandbox.te4xf.mongodb.net/Sandbox?retryWrites=true&w=majority",
+			"mongodb+srv://<username>:<password>@cluster0-qjqjg.mongodb.net/test?retryWrites=true&w=majority",
 			{ useNewUrlParser: true },
 		);
 		User.injectDB(client);
@@ -20,11 +13,6 @@ describe("User Account", () => {
 
 	afterAll(async () => {
 		await client.close();
-	})
-
-	test("New user registration", async () => {
-		const res = await User.register();
-		expect(res).toEqual({"username": "david"})
 	})
 
 	// test("Duplicate username", async () => {
